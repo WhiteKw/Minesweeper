@@ -1,7 +1,8 @@
 export const GAME_STATE = {
   READY: "READY",
-  START: "START",
-  GAME_OVER: "GAME_OVER"
+  PLAY: "PLAY",
+  GAME_OVER: "GAME_OVER",
+  WIN: "WIN"
 };
 
 export const CELL_STATE = {

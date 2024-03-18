@@ -4,14 +4,14 @@ import { useContext } from "react";
 import styled from "styled-components";
 
 export default function LevelSelector() {
-  const { dispatch } = useContext(TableContext);
+  const { dispatch, gameState } = useContext(TableContext);
 
   return (
     <Footer>
       <ButtonGroup>
-        <Button onClick={() => dispatch({type: GAME_STATE.READY, ...LEVEL.EASY})}>EASY</Button>
-        <Button onClick={() => dispatch({type: GAME_STATE.READY, ...LEVEL.NORMAL})}>NORMAL</Button>
-        <Button onClick={() => dispatch({type: GAME_STATE.READY, ...LEVEL.HARD})}>HARD</Button>
+        <Button className={gameState === GAME_STATE.PLAY ? "disabled" : ""} onClick={() => dispatch({type: GAME_STATE.READY, ...LEVEL.EASY})}>EASY</Button>
+        <Button className={gameState === GAME_STATE.PLAY ? "disabled" : ""} onClick={() => dispatch({type: GAME_STATE.READY, ...LEVEL.NORMAL})}>NORMAL</Button>
+        <Button className={gameState === GAME_STATE.PLAY ? "disabled" : ""}onClick={() => dispatch({type: GAME_STATE.READY, ...LEVEL.HARD})}>HARD</Button>
         {/* <Button>CUSTOM</Button>     */}
       </ButtonGroup>
     </Footer>
@@ -36,6 +36,10 @@ const Button = styled.div`
   border: 4px outset #aaa;
   cursor: pointer;
   background-color: gray;
+  &.disabled {
+    pointer-events: none;
+    border: 4px inset #aaa;
+  }
   &:active {
     border: 4px inset #aaa;
   }

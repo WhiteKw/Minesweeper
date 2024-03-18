@@ -3,7 +3,7 @@ import { useContext } from "react";
 import styled from "styled-components"
 
 export default function Information() {
-  const { mine, timer } = useContext(TableContext);
+  const { mine, flag, timer } = useContext(TableContext);
 
   const lpad = (padLength, arrTxt, padString) => {
     arrTxt += "";
@@ -16,7 +16,7 @@ export default function Information() {
   return (
     <Header>
       <Inner>
-        <NumberDisplay>{mine}</NumberDisplay>
+        <NumberDisplay>{mine - flag}</NumberDisplay>
         <NumberDisplay>{lpad(2, Math.floor(timer / 60), '0')}:{lpad(2, (timer % 60), '0')}</NumberDisplay>
       </Inner>
     </Header>
