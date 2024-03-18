@@ -178,7 +178,7 @@ const clickCell = (_row, _col, maxRow, maxCol, mine, _opened, t) => {
         for (let c = startCol; c <= endCol; c++) {
           if (c < 0 || c > tableData[r].length - 1) continue;
 
-          if (tableData[r][c].state === CELL_STATE.MINE) {
+          if (tableData[r][c].state === CELL_STATE.MINE || tableData[r][c].state === CELL_STATE.FLAG_MINE) {
             mineCnt += 1;
           }
         }
