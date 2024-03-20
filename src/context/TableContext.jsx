@@ -75,6 +75,7 @@ const reducer = (state, action) => {
         col: action.col,
         row: action.row,
         timer: 0,
+        opened: 0,
         tableData: initTable(action.row, action.col, action.mine)
       }
     case CLICK.LEFT: 
@@ -202,6 +203,10 @@ const clickCell = (_row, _col, maxRow, maxCol, mine, _opened, t) => {
 
       return tableData
     }
+
+    console.log(opened)
+    console.log(`${maxRow} * ${maxCol} - ${mine} = ${maxRow * maxCol - mine}`)
+    console.log((opened === (maxRow * maxCol - mine)) ? GAME_STATE.WIN : GAME_STATE.PLAY)
 
     result = {
       tableData:  searchMine(_row, _col),
