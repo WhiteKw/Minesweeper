@@ -36,7 +36,7 @@ function Td({row, col}) {
   const { tableData, dispatch, gameState, mine, flag } = useContext(TableContext);
 
   const onLeftClick = (e) => {
-    if (gameState === GAME_STATE.GAME_OVER) return;
+    if (gameState === GAME_STATE.GAME_OVER || gameState === GAME_STATE.WIN) return;
 
     let params = {
       type: CLICK.LEFT,
